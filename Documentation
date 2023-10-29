@@ -1,0 +1,39 @@
+
+        -Description of graph creation:
+    To create the corresponding graph for the requirement, I declare a node
+structure containing the respective node name in the graph, the index I assign
+when reading each line from the "tema3.in" file, the weight being the distance
+from the first node to the second, the score that will be given for each node
+according to the formula in the requirement, depth - the depth, and island - the
+index of the island on which each node is located. As mentioned earlier, I read
+each line from the file and for the first task, I use a counter that will be the
+index of each node separately and check if there is any objective created with
+the corresponding name. If not, I will create a new node at the position of the
+counter and add to its list the objective with which it is linked, and I will
+perform this operation again for the other node (in the case of task 2, I will
+link the second node to the list of the first node, but not vice versa).
+
+        -Description of task 1:
+    To accomplish subpoint a, I use the DFS algorithm that I implement, and with
+its help, I check how many nodes are not connected to each other through a
+visited vector, which is initialized with 0, and if I reach a certain node,
+it will be initialized with 1. Then, I traverse this "visited" vector and
+count how many elements have not been initialized with 1, resulting in the
+number of existing islands.
+
+    To accomplish subpoint b, I implement a vector of graphs for each island
+and apply the Prim algorithm for each. I implement this algorithm with a
+priority queue, in which I add the index and the path of the respective node
+in it in the ascending order given by the path. Therefore, when I want to remove
+elements from it, I check if the respective node has been visited or not, and
+if it has, I move on to the next iteration. If not, I create a vector of the
+length of the islands, each index corresponding to the minimum path on the
+current island, and add to it the value of the path from the node taken out of
+the queue.
+
+        -Description of task 2:
+    To accomplish this task, I use the Dijkstra algorithm, which I implement
+with the same priority queue, and in the end, I will return a vector "distance"
+of the size of the existing nodes and a path list, which contains the index of
+each traversed node. Finally, I traverse this "path" list to find the minimum
+depth of a traversed node.
